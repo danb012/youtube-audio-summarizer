@@ -59,22 +59,28 @@ def download_audio(url):
 
     basename = video_id
     ydl_opts = {
-        'format': 'bestaudio/best',
+        'format': 'bestaudio[ext=m4a]/bestaudio/best',  # force m4a first, fallback to bestaudio
+        'outtmpl': f"{basename}.%(ext)s",
+        'quiet': True,
+        'no_warnings': True,
+        'noplaylist': True,
+        'geo_bypass': True,
+        'retries': 3,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'outtmpl': f"{basename}.%(ext)s",  # Let yt-dlp add extension
-        'quiet': False,
-        'no_warnings': False,
     }
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
+    except yt_dlp.utils.DownloadError as e:
+        st.error(f"Error downloading audio: {str(e)}")
+        return None
     except Exception as e:
-        st.error(f"Error downloading audio: {e}")
+        st.error(f"Unexpected error: {str(e)}")
         return None
 
     audio_file = find_downloaded_file(basename)
