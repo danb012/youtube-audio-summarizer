@@ -35,36 +35,36 @@ A Streamlit app that downloads audio from YouTube videos, transcribes the speech
    cd youtube-audio-summarizer
 
 (Optional) Create and activate a virtual environment:
-python -m venv venv
-source venv/bin/activate      # Mac/Linux
-venv\Scripts\activate         # Windows
+1. python -m venv venv
+2. source venv/bin/activate      # Mac/Linux
+3. venv\Scripts\activate         # Windows
 
 Install Python dependencies:
-pip install -r requirements.txt
-Make sure ffmpeg is installed and accessible from your command line:
-ffmpeg -version
-Run the Streamlit app:
-streamlit run app.py
+1. pip install -r requirements.txt
+2. Make sure ffmpeg is installed and accessible from your command line:
+3. ffmpeg -version
+4. Run the Streamlit app:
+5. streamlit run app.py
 
 Usage:
-Paste a valid YouTube video URL in the input box.
-Select the Whisper model size (smaller is faster, larger is more accurate).
-Click Summarize to download, transcribe, and summarize the video audio.
-View the transcript and summary on the page.
-Download the transcript and summary as TXT files if needed.
-Provide feedback via the sidebar form.
+- Paste a valid YouTube video URL in the input box.
+- Select the Whisper model size (smaller is faster, larger is more accurate).
+- Click Summarize to download, transcribe, and summarize the video audio.
+- View the transcript and summary on the page.
+- Download the transcript and summary as TXT files if needed.
+- Provide feedback via the sidebar form.
 
-Limitations
-Videos longer than 1 hour fail due to processing time and resource limits.
-Requires stable internet to download videos and access models.
-Not guaranteed to work on all operating systems or cloud platforms without proper setup.
+Limitations:
+1. Videos longer than 1 hour fail due to processing time and resource limits.
+2. Requires stable internet to download videos and access models.
+3. Not guaranteed to work on all operating systems or cloud platforms without proper setup.
 
 Feedback
-Your feedback is appreciated! Use the form in the sidebar to send comments or suggestions.
+- Your feedback is appreciated! Use the form in the sidebar to send comments or suggestions.
 
 
 Acknowledgments
-OpenAI Whisper for transcription
-Hugging Face Transformers for summarization
-yt-dlp for YouTube audio extraction
-Streamlit for the app framework
+- OpenAI Whisper for transcription
+- Hugging Face Transformers for summarization
+- yt-dlp for YouTube audio extraction
+- Streamlit for the app framework
